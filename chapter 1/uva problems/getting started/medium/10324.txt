@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    char s[1000001];
+    int cases=1;
+	while (scanf("%s",s)!=EOF) {
+		int n;
+		
+		cin>>n;
+		cout<<"Case "<<cases++<<":\n";
+		while(n--)
+		{
+		    int x,y;
+		    cin>>x>>y;
+		    if(x>y)swap(x,y);
+		    bool flag=1;
+		    char t=s[x];
+		    for(int i=x+1;i<=y;i++)
+		    {if(t!=s[i])
+		        {flag=0;break;}
+		    }
+		    if(flag)cout<<"Yes\n";
+		    else cout<<"No\n";
+		}
+		
+	}
+
+	return 0;
+}

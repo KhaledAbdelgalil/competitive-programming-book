@@ -1,0 +1,32 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+map<string,int>mp;
+int main()
+{
+   int h,c,s,f;
+   while(cin>>h>>c>>s>>f,h)
+   {
+      int day=0;
+      double currH=0;
+      double reqH=h;
+      double lossH=c*f/100.0;
+      double u=c;
+      do
+      {
+          day++;
+          if(u>0)currH+=u;
+          if(currH>reqH){
+              cout<<"success on day ";break;
+          }
+          currH-=s;
+          if(currH<0)
+          {
+              cout<<"failure on day ";break;
+          }
+          u-=lossH;
+      }while(1);
+      cout<<day<<endl;
+   }
+    return 0;
+}

@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<string.h>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{ 
+
+long long t;
+cin>>t;
+while(t--)
+{
+    int rows,cols;
+    cin>>rows>>cols;
+    
+    cout<<(rows/3)*(cols/3)<<"\n";
+    
+}
+return 0;
+}

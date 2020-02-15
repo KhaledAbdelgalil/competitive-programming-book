@@ -1,0 +1,28 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   
+  int t;
+  cin>>t;
+  for(int i=1;i<=t;i++)
+  {
+    cout<<"Case #"<<i<<":\n";
+    std::vector<string> in(10);
+    vector<int>rate(10);
+    int maxx=-1;
+    for(int i=0;i<10;i++)
+    {
+        cin>>in[i]>>rate[i];
+        maxx=max(rate[i],maxx);
+    }
+    for(int i=0;i<10;i++)
+    {
+        if(maxx==rate[i])
+        cout<<in[i]<<"\n";
+    }
+  }
+    return 0;
+}

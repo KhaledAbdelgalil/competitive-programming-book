@@ -1,0 +1,19 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   int x,y;
+   while(cin>>x>>y,x!=-1||y!=-1)
+   {
+       if(y>x)
+       {
+           cout<<min(y-x,x+1+99-y)<<endl;
+       }
+       else
+       cout<<min(x-y,99-x+1+y)<<endl;
+   }
+ 
+    return 0;
+}

@@ -1,0 +1,28 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   
+  int t;
+  cin>>t;
+  for(int i=1;i<=t;i++)
+  {
+      int h=0,l=0;
+      
+      int n;
+      cin>>n;
+      int prev,curr;
+      cin>>prev;
+      for(int i=1;i<n;i++)
+      {
+          cin>>curr;
+          if(curr>prev)h++;
+          else if(curr<prev)l++;
+          prev=curr;
+      }
+      cout<<"Case "<<i<<": "<<h<<" "<<l<<endl;
+  }
+    return 0;
+}

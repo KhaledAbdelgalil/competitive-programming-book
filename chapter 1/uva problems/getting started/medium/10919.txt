@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    int k,m;
+    map<int,bool>mp;
+   while(cin>>k,k) 
+    {
+        cin>>m;
+        mp.clear();
+        for(int i=0;i<k;i++)
+        {
+            int x;
+            cin>>x;
+            mp[x]=1;
+        }
+        bool yes=1;
+        for(int i=0;i<m;i++)
+        {
+            int c,r;
+            cin>>c>>r;
+            int count=0;
+            while(c--)
+            {
+                int x;
+                cin>>x;
+                if(mp[x]==1)count++;
+            }
+            if(count<r)yes=0;
+        }
+        if(yes)cout<<"yes\n";
+        else cout<<"no\n";
+	}
+	return 0;
+}

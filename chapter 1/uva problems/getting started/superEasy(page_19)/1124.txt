@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<string.h>
+#include<bits/stdc++.h>
+int main()
+{ 
+
+char s[100000];
+bool flag=1;
+long long l;
+long long i;
+while(gets(s))
+{
+printf("%s",s);
+printf("\n");
+}
+return 0;
+}

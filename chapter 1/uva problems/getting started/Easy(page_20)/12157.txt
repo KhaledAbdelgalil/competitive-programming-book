@@ -1,0 +1,49 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+unsigned int mile(int n)
+{
+    int res=0;
+    while(n>29)
+    {
+       n-=30;
+       res++;
+    }
+    return (res+1)*10;
+}
+unsigned int juice(int n)
+{
+    int res=0;
+    while(n>59)
+    {
+       n-=60;
+       res++;
+    }
+    return (res+1)*15;
+}
+int main()
+{
+   
+  int t;
+  cin>>t;
+  for(int i=1;i<=t;i++)
+  {
+    
+    int n;
+    cin>>n;
+    unsigned int miles=0;
+    unsigned int juices=0;
+    while(n--)
+    {
+        int x;
+        cin>>x;
+        miles+=mile(x);
+        juices+=juice(x);
+    }
+    cout<<"Case "<<i<<":";
+    if(miles>juices)cout<<" Juice "<<juices<<"\n";
+    else if(juices>miles)cout<<" Mile "<<miles<<"\n";
+    else cout<<" Mile Juice "<<miles<<"\n";
+  }
+    return 0;
+}

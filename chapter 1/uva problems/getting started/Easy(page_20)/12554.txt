@@ -1,0 +1,22 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+string song[16]={"Happy","birthday","to","you","Happy","birthday","to","you",
+"Happy","birthday","to","Rujia","Happy","birthday","to","you"
+    
+};
+int main()
+{
+   int n;
+   cin>>n;
+   int required_words=ceil(n/16.0);
+   string humans[n];
+   for(int i=0;i<n;i++)cin>>humans[i];
+   int i=0,j=0;
+   for(j=0;j<required_words*16;j++)
+   {
+       cout<<humans[i]<<": "<<song[j%16]<<endl;
+       i=(i+1)%n;
+   }
+    return 0;
+}

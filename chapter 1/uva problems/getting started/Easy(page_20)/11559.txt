@@ -1,0 +1,30 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   
+    int n,b,h,w;
+    while(scanf("%d %d %d %d",&n,&b,&h,&w)!=EOF)
+    {
+        int minn=b+1;
+        int p;
+        int weeks[w];
+      
+      while(h--)
+      {
+          cin>>p;
+          for(int i=0;i<w;i++)
+          cin>>weeks[i];
+          sort(weeks,weeks+w);
+          if(weeks[w-1]>=n)
+          {
+              minn=min(n*p,minn);
+          }
+      }
+      if(minn==b+1)cout<<"stay home\n";
+      else cout<<minn<<"\n";
+    }
+    return 0;
+}

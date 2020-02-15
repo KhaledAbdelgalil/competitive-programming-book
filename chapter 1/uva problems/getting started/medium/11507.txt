@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    int k;
+   while(cin>>k,k) 
+    {
+        int pos=1;
+        k--;
+      while(k--)
+      {
+          
+          string temp;
+          cin>>temp;
+          if(temp[0]=='+')
+          {
+              if(temp[1]=='y')
+              {
+                  switch(pos)
+                  {
+                      case 1:pos=3;break;
+                      case 2:pos=4;break;
+                      case 3:pos=2;break;
+                      case 4:pos=1;break;
+                  }
+              }
+              else if(temp[1]=='z')
+              {
+                  switch(pos)
+                  {
+                      case 1:pos=5;break;
+                      case 2:pos=6;break;
+                      case 5:pos=2;break;
+                      case 6:pos=1;break;
+                  }
+              }
+          }
+         else if(temp[0]=='-')
+          {
+              if(temp[1]=='y')
+              {
+                  switch(pos)
+                  {
+                      case 1:pos=4;break;
+                      case 2:pos=3;break;
+                      case 3:pos=1;break;
+                      case 4:pos=2;break;
+                  }
+              }
+              else if(temp[1]=='z')
+              {
+                  switch(pos)
+                  {
+                      case 1:pos=6;break;
+                      case 2:pos=5;break;
+                      case 5:pos=1;break;
+                      case 6:pos=2;break;
+                  }
+              }
+          }
+          
+      }
+      
+      switch(pos)
+      {
+          case 1:cout<<"+x\n";break;
+          case 2:cout<<"-x\n";break;
+          
+          case 3:cout<<"+y\n";break;
+          case 4:cout<<"-y\n";break;
+          
+          case 5:cout<<"+z\n";break;
+          case 6:cout<<"-z\n";break;
+      }
+	}
+	
+}

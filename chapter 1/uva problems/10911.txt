@@ -1,0 +1,49 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+int x[20],y[20];
+double dist[20][20],mem[1<<16];
+int target,n;
+double solve(int mask)
+{
+    
+    if(mem[mask]>-0.5)return mem[mask];
+    if(mask==target)return mem[mask]=0;
+    
+    double ans=20000000000.0;
+    int p1,p2;
+    for(p1=0;p1<2*n;p1++)
+    if(!(mask&(1<<p1)))break;
+    
+    for(p2=p1+1;p2<2*n;p2++)
+    if(!(mask&(1<<p2)))
+    ans=min(ans,solve(mask|(1<<p1)|(1<<p2))+dist[p1][p2]);
+    
+    return mem[mask]=ans;
+    
+}
+int main()
+{
+    int caseno=1;
+    while(cin>>n,n)
+    {
+        for(int i=0;i<2*n;i++)
+        {
+            scanf("%*s %d %d",&x[i],&y[i]);
+        }
+        for(int i=0;i<2*n-1;i++)
+        for(int j=i+1;j<2*n;j++)
+        dist[i][j]=dist[j][i]=hypot(x[i]-x[j],y[i]-y[j]);
+        memset(mem,-1,sizeof mem);
+        target=(1<<(2*n))-1;
+        printf("Case %d: %.2lf\n",caseno++,solve(0));
+    }
+    return 0;
+}

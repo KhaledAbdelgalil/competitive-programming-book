@@ -1,0 +1,47 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+map<string,int>mp;
+int main()
+{
+    int n,o,f;
+    bool flag=0;
+    int seq=1;
+   while(cin>>n>>o>>f,n||o||f)
+   {
+      int powers[n+1]={0};
+      int status[n+1]={0};
+      for(int i=1;i<=n;i++)
+      cin>>powers[i];
+      
+      int maxx=0;
+      bool flag_fuse=0;
+      int p=0;
+      for(int i=0;i<o;i++)
+      {
+          int device;
+          cin>>device;
+          if(status[device]==0)
+          {
+              status[device]=1;
+              p+=powers[device];
+              maxx=max(p,maxx);
+              if(p>f)flag_fuse=1;
+          }
+          else
+          {
+              status[device]=0;
+              p-=powers[device];
+          }
+      }
+      
+      cout<<"Sequence "<<seq++<<endl;
+      if(flag_fuse)cout<<"Fuse was blown."<<endl<<endl;
+      else {
+          cout<<"Fuse was not blown.\n";
+          cout<<"Maximal power consumption was "<<maxx<<" amperes.\n"<<endl;
+      }
+
+   }
+    return 0;
+}

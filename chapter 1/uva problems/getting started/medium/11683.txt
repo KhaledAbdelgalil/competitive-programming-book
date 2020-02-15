@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int h,c;
+    while(cin>>h>>c,h)
+    {
+        int count(0);
+        int x[c];
+        cin>>x[0];
+        count+=h-x[0];
+        for(int i=1;i<c;i++)
+        {
+            cin>>x[i];
+            if(x[i-1]>x[i])
+            count+=x[i-1]-x[i];
+        }
+        cout<<count<<"\n";
+    }
+    
+    return 0;
+}

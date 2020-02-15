@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<string.h>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{ 
+
+long long n,x,y,z;
+while(cin>>n>>x>>y>>z)
+{
+    long long ans=0;
+    if(x==0&&y==0&&z==0&&n==0)break;
+   ans+=n>x?n-x:n+40-x;
+   ans+=y>x?y-x:40-x+y;
+   ans+=y>z?y-z:y+40-z;
+   
+   
+    ans*=9;
+    cout<<ans+1080<<"\n";
+    
+}
+return 0;
+}

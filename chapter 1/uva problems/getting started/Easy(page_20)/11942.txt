@@ -1,0 +1,39 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   
+  int t;
+  cin>>t;
+  cout<<"Lumberjacks:\n";
+  for(int i=1;i<=t;i++)
+  {
+     int men[10];
+     for(int i=0;i<10;i++)
+     {
+         cin>>men[i];
+     }
+     bool flag=1;
+     for(int i=0;i<9;i++)
+     {
+         if(men[i+1]>=men[i]){
+             flag=0;
+             break;
+         }
+     }
+     if(flag){cout<<"Ordered\n";continue;}
+     flag=1;
+       for(int i=0;i<9;i++)
+     {
+         if(men[i+1]<=men[i]){
+             flag=0;
+             break;
+         }
+     }
+     if(flag){cout<<"Ordered\n";continue;}
+     cout<<"Unordered\n";
+  }
+    return 0;
+}

@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    while(cin>>n,n)
+    {
+        char f='m';
+        int index=-1;
+        int minn=2000005;
+        for(int i=0;i<n;i++)
+        {
+            char x;
+            cin>>x;
+            if(x=='Z')
+            minn=0;
+            else if(x=='R'||x=='D')
+            {
+                if(f=='m')
+                index=i,f=x;
+                else if(x!=f)
+                f=x,minn=min(i-index,minn),index=i;
+                else
+                index=i;
+            }
+        }
+        cout<<minn<<"\n";
+    }
+
+    return 0;
+}
