@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<string>grid, grid2;
+int n, m;
+int di[]={1,1,1,0,0,-1,-1,-1};
+int dj[]={1,0,-1,1,-1,1,0,-1};
+
+int flood_fill(int i, int j){
+    if(i >= n || j >= m || i < 0 || j < 0)return 0;
+    if(grid2[i][j] == '.' || grid2[i][j] == 'L')return 0;
+    
+    int ans = 1;
+    grid2[i][j] = '.';//to avoid double counting
+    for(int f = 0; f < 8; f++)
+        ans += flood_fill(i + di[f], j + dj[f]);
+    return ans;
+}
+int main()
+{
+    std::ifstream in ("input");
+    std::streambuf * cinbuf = std::cin.rdbuf ();	//save old buf 
+    std::cin.rdbuf (in.rdbuf ());	//redirect std::cin to in.txt!
+    int t;
+    cin >> t;
+    bool first = true;
+    cin.ignore();
+    cin.ignore();
+    while(t--){
+        if(!first)
+            cout << endl;
+        first = false;
+        string temp;
+        grid.clear();
+        while(getline(cin, temp) && ( temp[0] == 'W' || temp[0] == 'L')){
+            grid.push_back(temp);
+           
+        }
+        n = grid.size();
+        m = grid[0].size();
+       // cout << n << m << endl;
+        int sti ,stj;
+        do{
+            stringstream ss(temp);
+            ss >> sti >> stj;
+            grid2 = grid;
+            int ans = flood_fill(sti - 1, stj - 1);
+            cout << ans << endl;
+        }while(getline(cin, temp) && temp != "");
+        
+    }
+    return 0;
+}
+
